@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arimo&family=Carlito&family=Dosis&family=Heebo&family=Inter&family=Karla&family=Manrope&family=Montserrat&family=Mukta&family=Nanum+Gothic&family=Nunito&family=Nunito+Sans&family=PT+Sans&family=Pathway+Extreme&family=Poppins&family=Quicksand&family=Raleway&family=Rubik&family=Source+Sans+Pro&family=Ubuntu&display=swap" rel="stylesheet">
+    <title>calendar v7, best version</title>
+
+    <style>
+        *{
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        #mainC{
+            display: grid;
+            grid-template-rows: auto auto 100px 100px 100px 100px 100px 100px ;
+            grid-template-columns: 100px 100px 100px 100px 100px 100px 100px;
+
+            grid-auto-flow: column;
+
+            width: fit-content;
+            margin: auto;
+        }
+
+        #o1{
+            background-color: #617A55;
+            color: white;
+            grid-column: 1 / span 7;
+
+            display: flex;
+            text-align: center;
+            justify-content: center;
+        }
+
+        #o1C{
+            display: flex;
+            column-gap: 10px;
+        }
+
+        #o2{
+            background-color: #A4D0A4;
+            grid-column: 1 / span 7;
+
+            display: flex;
+        }
+
+        .weekdays{
+            width: 100%;
+            text-align: center;
+            padding: 6px;
+        }
+
+        #o3, #o4, #o5, #o6, #o7, #o8{
+            grid-column: 1 / span 7;
+            
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .o3, .o4, .o5, .o6, .o7, .o8{
+            background-color: #FFF8D6;
+            width: 96px;
+            height: 94px;
+
+            border: black solid 1px;
+        }
+
+        /* .o3:hover, .o4:hover, .o5:hover, .o6:hover, .o7:hover, .o8:hover{
+            background-color: #F7E1AE;
+        }  */
+
+        #c1, #c2, #c3, #c4, #c5, #c6, #c7{
+            padding: 0;
+            margin: 0;
+            padding-top: 10px;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <i class="fi fi-br-angle-left"></i>
+    <i class="fi fi-br-angle-right"></i> -->
+    
+    <div id="mainC">
+        <div class="items" id="o1">
+            <div id="o1C">
+                <h1 id="month">month</h1>
+                <h1 id="year">year</h1>
+            </div>
+        </div>
+        <div class="items" id="o2">
+            <div class="weekdays">Sun.</div>
+            <div class="weekdays">Mon.</div>
+            <div class="weekdays">Tues.</div>
+            <div class="weekdays">Wed.</div>
+            <div class="weekdays">Thurs.</div>
+            <div class="weekdays">Fri.</div>
+            <div class="weekdays">Sat.</div>
+        </div>
+        <div class="items" id="o3">
+            <div class="o3"><p id="c1"></p></div>
+            <div class="o3"><p id="c2"></p></div>
+            <div class="o3"><p id="c3"></p></div>
+            <div class="o3"><p id="c4"></p></div>
+            <div class="o3"><p id="c5"></p></div>
+            <div class="o3"><p id="c6"></p></div>
+            <div class="o3"><p id="c7"></p></div>
+        </div>
+        <div class="items" id="o4">
+            <div class="o4"><p id="c1"></p></div>
+            <div class="o4"><p id="c2"></p></div>
+            <div class="o4"><p id="c3"></p></div>
+            <div class="o4"><p id="c4"></p></div>
+            <div class="o4"><p id="c5"></p></div>
+            <div class="o4"><p id="c6"></p></div>
+            <div class="o4"><p id="c7"></p></div>
+        </div>
+        <div class="items" id="o5">
+            <div class="o5"><p id="c1"></p></div>
+            <div class="o5"><p id="c2"></p></div>
+            <div class="o5"><p id="c3"></p></div>
+            <div class="o5"><p id="c4"></p></div>
+            <div class="o5"><p id="c5"></p></div>
+            <div class="o5"><p id="c6"></p></div>
+            <div class="o5"><p id="c7"></p></div>
+        </div>
+        <div class="items" id="o6">
+            <div class="o6"><p id="c1"></p></div>
+            <div class="o6"><p id="c2"></p></div>
+            <div class="o6"><p id="c3"></p></div>
+            <div class="o6"><p id="c4"></p></div>
+            <div class="o6"><p id="c5"></p></div>
+            <div class="o6"><p id="c6"></p></div>
+            <div class="o6"><p id="c7"></p></div>
+        </div>
+        <div class="items" id="o7">
+            <div class="o7"><p id="c1"></p></div>
+            <div class="o7"><p id="c2"></p></div>
+            <div class="o7"><p id="c3"></p></div>
+            <div class="o7"><p id="c4"></p></div>
+            <div class="o7"><p id="c5"></p></div>
+            <div class="o7"><p id="c6"></p></div>
+            <div class="o7"><p id="c7"></p></div>
+        </div>
+        <div class="items" id="o8">
+            <div class="o8"><p id="c1"></p></div>
+            <div class="o8"><p id="c2"></p></div>
+            <div class="o8"><p id="c3"></p></div>
+            <div class="o8"><p id="c4"></p></div>
+            <div class="o8"><p id="c5"></p></div>
+            <div class="o8"><p id="c6"></p></div>
+            <div class="o8"><p id="c7"></p></div>
+        </div>
+    </div>
+
+    <!-- Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a> -->
+
+<script>
+    //arrays
+    const months = [
+        {
+            month: "January",
+            maxDays: "31"
+        },
+
+        {
+            month: "February",
+            maxDays: "28"
+            //occasionally 29 on leap years
+        },
+
+        {
+            month: "March",
+            maxDays: "31"
+        },
+
+        {
+            month: "April",
+            maxDays: "30"
+        },
+
+        {
+            month: "May",
+            maxDays: "31"
+        },
+
+        {
+            month: "June",
+            maxDays: "30"
+        },
+
+        {
+            month: "July",
+            maxDays: "31"
+        },
+
+        {
+            month: "August",
+            maxDays: "31"
+        },
+
+        {
+            month: "September",
+            maxDays: "30"
+        },
+
+        {
+            month: "October",
+            maxDays: "31"
+        },
+
+        {
+            month: "November",
+            maxDays: "30"
+        },
+
+        {
+            month: "December",
+            maxDays: "31"
+        }
+    ]
+    const daysOfWeek = [
+        {
+            day: "Sunday"
+        },
+
+        {
+            day: "Monday"
+        },
+
+        {
+            day: "Tuesday"
+        },
+
+        {
+            day: "Wednesday"
+        },
+
+        {
+            day: "Thursday"
+        },
+
+        {
+            day: "Friday"
+        },
+
+        {
+            day: "Saturday"
+        },
+    ]
+
+    //for years
+    const theDate = new Date();
+
+    let theYear = theDate.getFullYear();
+    document.getElementById("year").textContent = theYear;
+
+    //for leap years
+    if (theYear % 4 === 0) {
+        console.log("A leap year!")
+        months[1].maxDays = "29"
+        console.log("February has " + months[1].maxDays + " days this year.")
+    }
+    else {
+        console.log(theYear + " is not a leap year.")
+        months[1].maxDays = "28"
+        console.log("February has " + months[1].maxDays + " days this year.")
+    }
+    //end of years script 
+
+    //for months script
+    let theMonth = theDate.getMonth();
+    var monthNum = 0
+    for (var counter1 = 0; counter1 <= 11; counter1++) {
+        if (monthNum === theMonth) {
+            document.getElementById("month").textContent = months[monthNum].month;
+        }
+        else {
+            monthNum += 1;
+        }
+    }
+    //end of months script 
+
+    //for numbering days script
+    let cell1 = document.querySelectorAll("#c1");
+    let cell2 = document.querySelectorAll("#c2");
+    let cell3 = document.querySelectorAll("#c3");
+    let cell4 = document.querySelectorAll("#c4");
+    let cell5 = document.querySelectorAll("#c5");
+    let cell6 = document.querySelectorAll("#c6");
+    let cell7 = document.querySelectorAll("#c7");
+
+    var date = new Date;
+    var yr = date.getFullYear();
+    var mh = date.getMonth();
+    console.log(mh)
+
+    const firstDay = new Date(yr, mh, 1);
+    console.log("The first day of the current month is " + firstDay)
+    var ofCell = firstDay.getDay();
+
+
+    var dayCounter = 1
+    var prevMonth = months[mh-1].maxDays
+    var numD = months[mh].maxDays
+    var cellNum = 0
+    //for loop w day counter?
+    for (var counter2 = 0; dayCounter <= numD; counter2++) {
+        if (dayCounter === 1) {
+            if (ofCell === 0) {
+                if (dayCounter === date.getDate()) { cell1[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell1[cellNum].textContent = dayCounter++;
+                if (dayCounter === date.getDate()) { cell2[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell2[cellNum].textContent = dayCounter++;
+                if (dayCounter === date.getDate()) { cell3[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell3[cellNum].textContent = dayCounter++;
+                if (dayCounter === date.getDate()) { cell4[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell4[cellNum].textContent = dayCounter++;
+                if (dayCounter === date.getDate()) { cell5[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell5[cellNum].textContent = dayCounter++;
+                if (dayCounter === date.getDate()) { cell6[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell6[cellNum].textContent = dayCounter++;
+                if (dayCounter === date.getDate()) { cell7[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell7[cellNum].textContent = dayCounter++;
+
+                cellNum++;
+
+                for (cellNum = 1; cellNum <= 6; cellNum++) {
+                    if (dayCounter === date.getDate()) { cell1[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell1[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell2[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell2[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell3[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell3[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell4[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell4[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell5[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell5[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell6[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell6[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell7[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell7[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+                }
+            };
+            if (ofCell === 1) {
+                if (dayCounter === date.getDate()) { cell2[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell2[cellNum].textContent = dayCounter++;
+                if (dayCounter === date.getDate()) { cell3[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell3[cellNum].textContent = dayCounter++;
+                if (dayCounter === date.getDate()) { cell4[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell4[cellNum].textContent = dayCounter++;
+                if (dayCounter === date.getDate()) { cell5[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell5[cellNum].textContent = dayCounter++;
+                if (dayCounter === date.getDate()) { cell6[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell6[cellNum].textContent = dayCounter++;
+                if (dayCounter === date.getDate()) { cell7[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell7[cellNum].textContent = dayCounter++;
+
+                    // // cell1[cellNum].parentNode.style.backgroundColor = "rgb(210 191 147)" 
+                    // cell1[cellNum].parentNode.style.backgroundColor = "rgb(234 226 208)" 
+                    cell1[cellNum].textContent = prevMonth--;
+                cellNum++;
+
+                for (cellNum = 1; cellNum <= 6; cellNum++) {
+                    if (dayCounter === date.getDate()) { cell1[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell1[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell2[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell2[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell3[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell3[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell4[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell4[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell5[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell5[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell6[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell6[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell7[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell7[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+                }
+            };
+            if (ofCell === 2) {
+                if (dayCounter === date.getDate()) { cell3[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell3[cellNum].textContent = dayCounter++;
+                if (dayCounter === date.getDate()) { cell4[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell4[cellNum].textContent = dayCounter++;
+                if (dayCounter === date.getDate()) { cell5[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell5[cellNum].textContent = dayCounter++;
+                if (dayCounter === date.getDate()) { cell6[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell6[cellNum].textContent = dayCounter++;
+                if (dayCounter === date.getDate()) { cell7[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell7[cellNum].textContent = dayCounter++;
+
+                    cell2[cellNum].textContent = prevMonth--;
+                    cell1[cellNum].textContent = prevMonth--;
+                cellNum++;
+
+                for (cellNum = 1; cellNum <= 6; cellNum++) {
+                    if (dayCounter === date.getDate()) { cell1[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell1[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell2[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell2[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell3[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell3[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell4[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell4[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell5[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell5[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell6[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell6[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell7[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell7[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+                }
+            };
+            if (ofCell === 3) {
+                if (dayCounter === date.getDate()) { cell4[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell4[cellNum].textContent = dayCounter++;
+                if (dayCounter === date.getDate()) { cell5[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell5[cellNum].textContent = dayCounter++;
+                if (dayCounter === date.getDate()) { cell6[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell6[cellNum].textContent = dayCounter++;
+                if (dayCounter === date.getDate()) { cell7[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell7[cellNum].textContent = dayCounter++;
+
+                    cell3[cellNum].textContent = prevMonth--;
+                    cell2[cellNum].textContent = prevMonth--;
+                    cell1[cellNum].textContent = prevMonth--;
+                cellNum++;
+
+                for (cellNum = 1; cellNum <= 6; cellNum++) {
+                    if (dayCounter === date.getDate()) { cell1[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell1[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell2[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell2[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell3[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell3[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell4[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell4[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell5[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell5[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell6[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell6[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell7[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell7[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+                }
+            };
+            if (ofCell === 4) {
+                if (dayCounter === date.getDate()) { cell5[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell5[cellNum].textContent = dayCounter++;
+                if (dayCounter === date.getDate()) { cell6[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell6[cellNum].textContent = dayCounter++;
+                if (dayCounter === date.getDate()) { cell7[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell7[cellNum].textContent = dayCounter++;
+
+                    cell4[cellNum].textContent = prevMonth--;
+                    cell3[cellNum].textContent = prevMonth--;
+                    cell2[cellNum].textContent = prevMonth--;
+                    cell1[cellNum].textContent = prevMonth--;
+                cellNum++;
+
+                for (cellNum = 1; cellNum <= 6; cellNum++) {
+                    if (dayCounter === date.getDate()) { cell1[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell1[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell2[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell2[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell3[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell3[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell4[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell4[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell5[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell5[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell6[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell6[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell7[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell7[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+                }
+            };
+            if (ofCell === 5) {
+                if (dayCounter === date.getDate()) { cell6[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell6[cellNum].textContent = dayCounter++;
+                if (dayCounter === date.getDate()) { cell7[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell7[cellNum].textContent = dayCounter++;
+
+                    cell5[cellNum].textContent = prevMonth--;
+                    cell4[cellNum].textContent = prevMonth--;
+                    cell3[cellNum].textContent = prevMonth--;
+                    cell2[cellNum].textContent = prevMonth--;
+                    cell1[cellNum].textContent = prevMonth--;
+                cellNum++;
+
+                for (cellNum = 1; cellNum <= 6; cellNum++) {
+                    if (dayCounter === date.getDate()) { cell1[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell1[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell2[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell2[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell3[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell3[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell4[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell4[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell5[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell5[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell6[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell6[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell7[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell7[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+                }
+            };
+            if (ofCell === 6) {
+                if (dayCounter === date.getDate()) { cell7[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                cell7[cellNum].textContent = dayCounter++;
+                
+                    cell6[cellNum].textContent = prevMonth--;
+                    cell5[cellNum].textContent = prevMonth--;
+                    cell4[cellNum].textContent = prevMonth--;
+                    cell3[cellNum].textContent = prevMonth--;
+                    cell2[cellNum].textContent = prevMonth--;
+                    cell1[cellNum].textContent = prevMonth--;
+                cellNum++;
+
+                for (cellNum = 1; cellNum <= 6; cellNum++) {
+                    if (dayCounter === date.getDate()) { cell1[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell1[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell2[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell2[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell3[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell3[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell4[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell4[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell5[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell5[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell6[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell6[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+
+                    if (dayCounter === date.getDate()) { cell7[cellNum].parentNode.style.backgroundColor = "#F7E1AE" }
+                    cell7[cellNum].textContent = dayCounter++;
+                    if (dayCounter > numD) { dayCounter = 1; }
+                }
+            };
+        };
+    };
+</script>
+</body>
+</html>
